@@ -1,0 +1,7 @@
+= Spring Music Gemfire
+
+This is an adaption of https://github.com/scottfrederick/spring-music
+... for Gemfire.
+
+It assumes you have a locator on localhost:10334 and a region called 'Album_default'
+

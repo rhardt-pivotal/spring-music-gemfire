@@ -2,9 +2,7 @@ package io.pivotal.fe.samples.music.springmusicgemfire;
 
 import org.springframework.core.env.Environment;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ProfileAppendUtils {
@@ -20,7 +18,10 @@ public class ProfileAppendUtils {
             Set<String> profileSet = Arrays.stream(profiles.split(",")).map(String::toLowerCase).map(s -> s.trim()).collect(Collectors.toSet());
             profileSet.retainAll(expectedProfiles);
             if (!profileSet.isEmpty()) {
-                ret = profileSet.iterator().next();
+                //slightly wasteful but deterministic
+                List<String> profs = new ArrayList(profileSet);
+                Collections.sort(profs);
+                ret = profs.get(0);
             }
         }
         return originalName+PROFILE_SEPARATOR+ret;
