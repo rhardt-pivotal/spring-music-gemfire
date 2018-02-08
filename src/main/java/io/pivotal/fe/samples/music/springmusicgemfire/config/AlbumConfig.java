@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
 import org.springframework.data.gemfire.config.xml.GemfireConstants;
@@ -23,6 +24,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableGemfireRepositories
+@Profile("default")
 public class AlbumConfig {
 
     @Bean

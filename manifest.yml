@@ -1,0 +1,8 @@
+---
+applications:
+- name: spring-music-gemfire
+  memory: 2G
+  instances: 1
+  path: ./target/spring-music-gemfire-0.0.1-SNAPSHOT.jar
+  services:
+  - robdev-session-replication
